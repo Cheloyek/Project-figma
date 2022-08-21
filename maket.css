@@ -1,0 +1,834 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+html,
+body{
+  height: 100%;
+  line-height: 1;
+}
+body{
+  font-size: 12px;
+  color: #616161;
+  font-family: Rubik;
+}
+.wrapper{
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.main {
+  flex: 1 1 auto;
+}
+.menu__link{
+  display: flex;
+}
+.button_blue{
+  
+}
+[class*="__container"] {
+  max-width: 1087px;
+  margin: 0px auto;
+  padding: 0px 15px;
+}
+/*1 brakepoint - PC*/
+@media(max-width: 1087px) {
+  [class*="__container"] {
+    max-width: 970px;
+  }
+}
+
+/*2 brakepoint - TABLET*/
+@media(max-width: 991.98px) {
+  [class*="__container"] {
+    max-width: 750px;
+  }
+}
+/*3 brakepoint - MOBILE*/
+@media(max-width: 767.98px) {
+  [class*="__container"] {
+    max-width: none;
+  }
+}
+/*4 brakepoint - MOBILE SMALL*/
+@media (max-width: 479.98px) {
+
+}
+
+.header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+.header__container {
+  display: flex;
+  flex: 1 1 114px;
+  align-items: center;
+  min-height: 80px; /*отступ сверху*/
+}
+
+.header__logo {
+  position: relative;
+  z-index: 5;
+}
+.header__menu {
+  flex: 1 1 auto;
+}
+/*------------menu---------------------*/
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 40px 0px 0px;
+}
+.menu__list {
+  display: flex;
+  /* gap: 40px; можно так отступы между словами в меню поставить, но старые версии браузера могут не поддерживать*/
+}
+.menu__item {
+  margin: 0px 40px 0px 0px;/* отступы между словами в меню */
+}
+
+.menu__link {
+  font-family: Raleway;
+  text-transform: uppercase;
+  font-width: 700;
+  font-size: 10px;
+  line-height: 1.2;
+  color: black;
+  letter-spacing: 1px; /* отступы между буквами в словах */
+}
+.menu__link:hover {
+  text-decoration: underline; /*При выделении подчеркивает*/
+  color: #EC5863; /*меняет цвет*/
+}
+/*не показывать меню на экране менее 767.98px*/
+@media (max-width: 767.98px) {
+  .menu__body {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /*добавляет скролл меню при уменьшении высоты браузера*/
+    background-color: #ffffff;
+    padding: 90px 15px 30px 15px;
+    transition: left 0.3s ease 0s; /*animation*/
+  }  
+  /*когда нажимаем на меню бургер оно получает псевдокласс target*/
+  /*после нажатия становится видно*/
+  .header:target .menu__body {
+    left: 0%;
+  }
+  /*белая прокладка при скроллинге*/
+  .header:target .menu__body:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    background-color: #fff;
+  }
+  .menu__list {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu__item {
+    padding: 0px 0px 25px 25px;
+  }
+  .menu__item:last-child {
+    margin-bottom: 0px;
+  }
+  .menu__link {
+    /*color: black;*/
+    font-size: 20px;
+  }
+}
+/*при разрешении 479.98px скрыть надпись GoCorona*/
+@media (max-width: 479.98px) {
+  .header__logo {
+    flex: 0 0 30px;
+    overflow: hidden;
+  }
+}
+/*размер области для кнопки*/
+.header__button {
+  position: relative; /*показать кнопку на мобильном экране*/
+  z-index: 5;
+  flex: 0 0 252px;
+  display:flex ;
+  justify-content: flex-end;
+  align-items: center; /*разместит menu berger по центру*/
+}
+
+@media(max-width: 991.98px) {
+  /*при уменьшении размера окна до 991.98 уменьшается шапка*/
+  .header__container {
+    min-height: 80px;
+  }
+  /*при уменьшении размера окна до 991.98 уменьшается размер области для кнопки*/
+  .header__button {
+    flex: 0 0 170px;
+  }
+  /*отступ между пунктами в меню*/
+  .menu__item {
+    margin: 0px 30px 0px 0px;
+  }
+}
+/*-------------button download--------------------*/
+.button {
+  display: inline-block;
+  font-family: Raleway;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1px;
+  color: #fcfdfe;
+  padding: 14px 31px;
+  border-radius: 5px;
+  background-color: #EC5863;
+  transition: background-color 0.5s ease 0s;
+}
+.button:hover{
+  background-color: #4285F4;
+  box-shadow: 1px 2px 3px 2px rgb(55, 67, 228);
+}
+.button_blue {
+  background-color: #4285F4;
+}
+.button_blue:hover {
+  background-color: #0457dd;
+  box-shadow: 1px 2px 3px 2px rgb(33, 46, 228);
+}
+/*------------burger menu---------------------*/
+.close-icon-menu,
+.icon-menu {
+  display: none; /*не показывать menu burger на размере окна для PC*/
+}
+/*покажет menu burger на размере окна менее чем 767.98px*/
+@media (max-width: 767.98px) {
+  .icon-menu {
+    display: flex;
+    position: relative;
+    flex: 0 0 30px;
+    height: 18px;
+    flex-direction: column; /*сделает элементы в колонку*/
+    justify-content: space-between;
+    margin: 0 0 0 10px; /*отступ menu burger от кнопки*/
+  }
+/*нарисовать 3 полоски menu burger, after - верх и нижн, span - средняя*/
+  .icon-menu::before,
+  .icon-menu::after {
+    content: "";
+    background-color: #000000;
+    height: 2px;
+  }
+  .icon-menu span {
+    background-color: rgb(0, 0, 0);
+    height: 2px;
+  }
+  .close-icon-menu{
+    flex: 0 0 30px;
+    height: 30px;
+    position: relative;
+  }
+  .close-icon-menu::before,
+  .close-icon-menu::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    height: 2px;
+  }
+  /*крестик при нажатии*/
+  .close-icon-menu::before {
+    transform: rotate(-45deg);
+  }
+  .close-icon-menu::after {
+    transform: rotate(45deg);
+  }
+  /*убрать крестик при нажатии*/
+  .header:target .icon-menu {
+    display: none;
+  }
+  .header:target .close-icon-menu {
+    display: flex;
+  }
+}
+
+
+/*===========text===================*/
+.block-text {
+
+}
+.block-text_center {
+  text-align: center; /*по центру заголовок healthcare*/
+}
+.block-text__text_mw {
+  max-width: 620px;
+  margin: 0px auto;
+}
+.block-text__title {
+  font-weight: 700; /*толщина шрифта*/
+  font-size: 44px; /*размер шрифта*/
+  line-height: 126%; /*высота шрифта*/
+  color: black;
+}
+/*отступ от заголовка до текста*/
+.block-text__title:not(:last-child) { /*not last-child - добавлять отступ только если объект не последний*/
+  margin: 0px 0px 12px 0px;
+}
+
+/*pink слово*/
+.block-text__title span {
+  color: #EC5863;
+}
+/*blue слово*/
+.block-text__title_blue span {
+  color: #4285F4;
+}
+.block-text__text {
+  line-height: 138.5%;
+  color: #616161;
+}
+/*отступ от текста*/
+.block-text__text:not(:last-child) { 
+  margin: 0px 0px 24px 0px;
+}
+.block-text__button {
+}
+@media (max-width: 767.98px) {
+  .block-text__title {
+font-size: 34px;
+  }
+}
+/*===========main===================*/
+.get-started {
+  background-color: rgb(247, 247, 247);
+}
+.get-started__container {
+  padding: 150px 15px 50px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+/*красный блок справа*/
+.get-started__container::before {
+  content: "";
+  position: absolute;
+  width: 100vw; /*vw - красный блок будет продолжаться даже на широком мониторе*/
+  height: 100%;
+  right: 267px; /*ширина справа*/
+  top: 0;
+  transform: translate(100%,0);
+  background-color: #EC5863;
+  border-radius: 30px 0px 0px 30px;
+}
+.get-started__content {
+  flex: 0 1 48%;
+  padding: 0px 20px; /*отступ слева и справа 20px*/
+}
+.get-started__block-text {
+  max-width: 410px;
+}
+.button {
+}
+.get-started__video {
+  flex: 1 1 100%;
+  margin: 60px 0px 0px 20px; /*отступ от кнопки GET STARTED и слева*/
+}
+.get-started__image {
+  flex: 0 1 52%;
+  position: relative; /*сдвигает относительно обычного позиционирования*/
+  z-index: 2; /*картинка на переднем фоне относительно красного блока*/
+}
+.get-started__image img {
+  max-width: 100%;
+}
+.video-get-started {
+  display: inline-flex;/*ссылка не на всю ширину блока*/
+  align-items: center; /*выравнивание по центру относительно кнопки Play*/
+}
+.video-get-started__icon {
+  flex: 0 0 44px;
+}
+.video-get-started__body {
+  padding: 0 0 0 12px;/*отступ блока от кнопки*/
+}
+/*Блок Stay safe with GoCorona*/
+.video-get-started__title {
+  font-size: 13px;
+  line-height: 126%; /*высота блока текста*/
+  color: #B0B0B0; /*серый текст возле кнопки Play*/
+  letter-spacing: 1.5px;
+}
+/*отступ между блоками возле кнопки Play*/
+.video-get-started__title:not(:last-child) { 
+  margin: 0px 0px 5px 0px;
+}
+.video-get-started__text {
+  text-transform: uppercase;
+  font-size: 9px;
+  line-height: 126%;
+  letter-spacing: 2px;
+  color: #000000;
+}
+@media (max-width: 991.98px) {
+  .get-started__container::before {
+    right: 185px;
+    border-radius: 20px 0px 0px 20px;
+  }
+}
+@media (max-width: 767.98px) {
+  .get-started__container{
+    padding: 100px 15px 30px 15px; /*уменьшить отступы*/
+    }
+  .get-started__container::before {
+    display: none;
+  }
+  .get-started__block-text {
+    min-width: none;
+  }
+  /*позволяет увеличиваться в ширине тексту*/
+  .get-started__content {
+    flex: 1 1 100%;
+    padding: 0; /*убираем отступы*/
+  }
+.get-started__image {
+  flex: 1 1 100%;
+  text-align: center;
+  padding: 30px 0;
+}
+.get-started__video {
+  padding: 0;
+}
+}
+
+/*=================stay-safe=================*/
+.stay-safe {
+  padding: 80px 0px 80px 100px; /*отступ блока с изображением*/
+}
+.stay-safe__container {
+  display: flex; /*делит блок на 2 части*/
+  align-items: center; /*по центру высоты блока*/
+}
+.stay-safe__media {
+  flex: 0 1 50%;
+}
+
+.stay-safe__content {
+  flex: 0 1 50%;
+}
+.stay-safe__block-text {
+}
+
+.media-stay-safe {
+  width: 373px; /*ширина блока с изображением*/
+  padding: 56px 0px 27px 0px; /*отступы для формирования красных квадратов*/
+  text-align: center;
+  position: relative;
+}
+.media-stay-safe__image {
+  display: inline-block; /*чтобы объект не занимал всю ширину, а был по ширине изображения*/
+  box-shadow: 2px 4px 32px rgba(0, 0, 0, 0.12); /*тень к изображению*/
+  border-radius: 16px;
+  position: relative;
+  width: 61.5%; /*привязка к размеру блока, чтобы на мобильных экранах влазило изображение*/
+}
+.media-stay-safe__image img {
+  position: relative;
+  z-index: 5; /*изображение на передний план*/
+  max-width: 100%;
+}
+/*овальная тень под изображением*/
+.media-stay-safe__image::after {
+  content: "";
+  position: absolute;
+  bottom: -12px; /*отступает снизу на 12px от изображения*/
+  left: 12px; /*отступает слева на 12px от изображения*/
+  width: 206px;
+  height: 27px;
+  background: rgba(240, 240, 240, 0.49);
+  border-radius: 16px;
+  z-index: 2; /*тень будет поверх красного квадрата*/
+}
+/*красные квадраты*/
+.media-stay-safe__item {
+  position: absolute;
+  background-color:#EC5863;
+  border-radius: 30px;
+}
+.media-stay-safe__item_1 {
+  top: 0;
+  left: 0;
+  width: 147px;
+  height: 147px;
+}
+.media-stay-safe__item_2 {
+  bottom: 107px;
+  right: 34px;
+  width: 77px;
+  height: 77px;
+}
+.media-stay-safe__item_3 {
+  bottom: 0px;
+  left: 33px;
+  width: 77px;
+  height: 77px;
+}
+
+@media (max-width: 991.98px) {
+  .stay-safe {
+    padding: 40px 0;
+}
+}
+@media (min-width: 991.98px) {
+  .stay-safe__media {
+    padding: 0px 0px 0px 47px;
+  }
+}
+/*на мобильном экране колонки*/
+@media (max-width: 767.98px) {
+  .stay-safe {
+    padding: 30px 0;
+  }
+  .stay-safe__container {
+    flex-direction: column-reverse; /*поменять местами текст и изображение*/
+  }
+  .stay-safe__content {
+  margin: 0px 0px 30px 0px; /*отступ текста от изображения*/
+  }
+}
+@media (max-width: 479.98px) {
+  .media-stay-safe {
+    width: 290px; /*чтобы влезало на экран 290px*/
+  }
+}
+
+/*============experts=============*/
+
+.experts {
+  background-color: #FAFBFD;
+  padding: 103px 0px 116px 0px;
+}
+.experts__container {
+}
+.experts__statistics {
+}
+.experts__block-text {
+  min-width: 400px;
+}
+.statistics-experts {
+  max-width: 655px;
+  margin: 0px auto;
+  position: relative;
+}
+/*adaptive vidseo*/
+.experts__body {
+  display: flex;
+  align-items: center;
+}
+.experts__content {
+  flex: 0 1 50%;
+  padding: 0px 20px 0px 0px; /*отступ от текста слева*/
+}
+.experts__video {
+  flex: 0 1 50%;
+  padding: 0px 0px 30% 0px;
+  position: relative;
+  box-shadow: 0px 4px 18px rgba(88, 126, 236, 0.18);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 900px;
+}
+
+.experts__video iframe{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+@media (max-width: 767.98px) {
+  .experts {
+    padding: 80px 0px 30px 0px;
+  }
+  .experts__body {
+    align-items: stretch; /*на мобильном устройстве ширина видео подстраивается*/
+    flex-direction: column;
+  }
+  .experts__video {
+    padding: 0px 0px 58% 0px; /*ширина относительно экрана*/
+  }
+  .experts__content {
+    padding: 0;
+    margin: 0px 0px 30px 0px; /*отступы для мобильного экрана*/
+  }
+}
+/*-----------------------*/
+.statistics-experts__body {
+  background-color: #fff;
+  box-shadow: 0px 2px 24px rgba(88, 126, 236, 0.15);
+  border-radius: 16px;
+  position: relative;
+  z-index: 2;
+  margin: 0px 0px 80px 0px;
+}
+
+.statistics-experts__decor {
+  position: absolute;
+  background-color:#EC5863;
+  border-radius: 30px;
+}
+
+.statistics-experts__decor_1 {
+  width: 65px;
+  height: 65px;
+  transform: rotate(-30deg);
+  top: 71px;
+  left: -21px;
+  border-radius: 16px;
+}
+.statistics-experts__decor_2 {
+  width: 97px;
+  height: 97px;
+  right: 50%;
+  transform: rotate(30deg);
+  top: -40px;
+  border-radius: 16px;
+}
+.statistics-experts__decor_3 {
+  width: 128px;
+  height: 128px;
+  right: -55px;
+  transform: rotate(30deg);
+  top: 0px;
+  border-radius: 16px;
+}
+
+.body-statistics-experts {
+  padding: 25px 80px;
+  display: flex;
+  align-items: center;
+}
+.body-statistics-experts__item {
+  flex: 1 1 25%;
+  text-align: center;
+}
+.body-statistics-experts__item:last-child {
+  flex: 1 1 50%;
+  text-align: center;
+}
+.body-statistics-experts__value {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: #EC5863;
+  margin-bottom: 5px;
+}
+.body-statistics-experts__text {
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 1.8;
+  letter-spacing: 3px;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: black;
+}
+
+@media (max-width: 767.98px) {
+  .statistics-experts__body {
+  margin: 0px 0px 50px 0px;
+  }
+  .body-statistics-experts {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .body-statistics-experts {
+    flex-direction: column; /*выстраивает элементы в колонку*/
+  }
+  .body-statistics-experts__item:not(last-child) {
+    margin: 0px 0px 15px 0px;
+  }
+}
+
+/*============healthcare=============*/
+
+.healthcare {
+  padding: 80px 0px 30px 0px; /*отступ от блока experts*/
+}
+.healthcare__container {
+}
+.healthcare__block-text {
+  margin: 0px 0px 45px 0px;
+}
+.healthcare__items {
+  display: flex;
+  /*gap: 72px; отступы между блоками healthcare, возможно не правильно отображение в некоторых браузерах*/
+}
+/*отступы между блоками healthcare*/
+.healthcare__column {
+  position: relative;
+  padding: 0px 36px;
+  flex: 0 1 33.333%;
+}
+.healthcare__item {
+  
+}
+.item-healthcare {
+  height: 100%; /*высота 100% для карточек, если в одной будет больше текста остальные будут одинакого размера*/
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0px 4px 18px rgba(88, 126, 236, 0.18);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 35px 17px;
+  z-index: 2;
+  max-width: 278px;
+  
+}
+.item-healthcare__icon {
+  margin: 0px 0px 58px 0px;
+}
+.item-healthcare__title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 138.5%;
+  color: #000000;
+  margin: 0px 0px 4px 0px;
+}
+.item-healthcare__text {
+  line-height: 138.5%;
+}
+.healthcare__column_1 {
+
+}
+.healthcare__column_1::before,
+.healthcare__column_1::after {
+  content: "";
+  position: absolute;
+  background-color: #EC5863;
+  border-radius: 16px;
+}
+.healthcare__column_1::before {
+  width: 65px;
+  height: 65px;
+  bottom: -32px;
+  left: 15px;
+  transform: rotate(-30deg);
+}
+.healthcare__column_1::after {
+  width: 95px;
+  height: 95px;
+  top: 32px;
+  right: -10px;
+  border-radius: 30px;
+  transform: rotate(20deg);
+}
+
+.healthcare__column_2::after {
+  content: "";
+  width: 127px;
+  height: 127px;
+  bottom: -32px;
+  right: -43px;
+  position: absolute;
+  background-color: #EC5863;
+  border-radius: 30px;
+  transform: rotate(-30deg);
+}
+.healthcare__column_3::after {
+  content: "";
+  width: 65px;
+  height: 65px;
+  top: -32px;
+  right: 20px;
+  position: absolute;
+  background-color: #EC5863;
+  border-radius: 16px;
+  transform: rotate(-30deg);
+}
+
+@media (max-width: 1087px) {
+  .healthcare__column {
+    padding: 0px 15px;
+  }
+}
+@media (max-width: 991.98px) {
+  .healthcare {
+    padding: 30px 0px 30px 0px;
+  }
+  .healthcare__items {
+    flex-direction: column;
+    align-items: center;
+  }
+  .healthcare__column:not(last-child){
+    margin: 0px 0px 25px 0px;
+  }
+}
+
+/*================footer====================*/
+
+.footer {
+  margin: 75px 0px 0px 0px;
+}
+.footer__container {
+
+}
+.footer__items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 50px; /*отступ когда в ряд*/
+  row-gap: 20px; /*отступ для мобильных экранов в колонку*/
+}
+.footer__item {
+}
+
+@media(max-width: 500px) {
+  .footer {
+    padding: 20px 0px 0px 0px;
+  }
+  .footer__items {
+    flex-direction: column;
+    align-items: center;
+  }
+}
